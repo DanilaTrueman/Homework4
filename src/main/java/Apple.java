@@ -12,18 +12,20 @@ public class Apple {
 
         printAppleInfo(name, appleCount);
     }
+
     public static void printAppleInfo(String name, int appleCount) {
         String text = name + " хранит у себя ";
+        String apples;
 
-        if (appleCount >= 5 && appleCount <= 10 || appleCount % 10 == 0) {
-            text += appleCount + " яблок";
-        } else if (appleCount % 10 == 1) {
-            text += appleCount + " яблоко";
-        } else if (appleCount % 10 >= 2 && appleCount % 10 <= 4) {
-            text += appleCount + " яблока";
+        if (appleCount % 10 == 1 && appleCount % 100 != 11) {
+            apples = "яблоко";
+        } else if (appleCount % 10 >= 2 && appleCount % 10 <= 4 && (appleCount % 100 < 10 || appleCount % 100 >= 20)) {
+            apples = "яблока";
         } else {
-            text += appleCount + " яблок";
+            apples = "яблок";
         }
+
+        text += appleCount + " " + apples;
         System.out.println(text);
     }
 }

@@ -17,6 +17,7 @@ public class Game {
 
         playGame(sequence);
     }
+
     public static void playGame(List<Integer> sequence) {
         List<Integer> toRemove = new ArrayList<>();
         int score = 0;
@@ -40,7 +41,7 @@ public class Game {
 
             for (int i = 0; i < sequence.size() - 1; i++) {
                 if ((toRemove.contains(sequence.get(i)) && toRemove.contains(sequence.get(i + 1))) &&
-                        (sequence.get(i) == sequence.get(i + 1) || sequence.get(i) + sequence.get(i + 1) == 9)) {
+                        (sequence.get(i).equals(sequence.get(i + 1)) || sequence.get(i) + sequence.get(i + 1) == 9)) {
                     sequence.remove(i);
                     sequence.remove(i);
                     score++;
@@ -57,6 +58,7 @@ public class Game {
             System.out.println("Результирующий счет: " + score);
         }
     }
+
     public static void printSequence(List<Integer> sequence) {
         for (int i = 0; i < sequence.size(); i++) {
             System.out.print(sequence.get(i) + " ");
